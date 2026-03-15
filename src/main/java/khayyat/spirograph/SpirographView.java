@@ -59,10 +59,10 @@ public class SpirographView extends JComponent
         g.translate(0, getHeight());
 
         double time = 0;
-        double prevX = 0;
-        double prevY = 0;
-        double x = 0;
-        double y = 0;
+        double prevX;
+        double prevY;
+        double x = (largeRadius - smallRadius) * Math.cos(time); //initial value when time = 0
+        double y = (largeRadius - smallRadius) * Math.sin(time); //initial value when time = 0
         for (int i = 0; i < numSteps; i++)
         {
             time = i * anglePerStep;
@@ -72,7 +72,8 @@ public class SpirographView extends JComponent
                     Math.cos((largeRadius - smallRadius) * time / smallRadius);
             y = (largeRadius - smallRadius) * Math.sin(time) - penDistance *
                     Math.sin((largeRadius - smallRadius) * time / smallRadius);
-            g.drawLine((int) prevX, (int) -prevY, (int) x, (int) -y);
+            g.drawLine((int) prevX + getWidth() / 2, (int) -prevY - getHeight() / 2,
+                    (int) x + getWidth() / 2, (int) -y - getHeight() / 2);
         }
     }
 }
