@@ -13,10 +13,6 @@ public class SpirographController
 
     public void updateView(double largeRad, double smallRad, double penDist, int numSteps, double angle)
     {
-        spirographView.setLargeRadius(largeRad);
-        spirographView.setSmallRadius(smallRad);
-        spirographView.setPenDistance(penDist);
-        spirographView.setNumSteps(numSteps);
-        spirographView.setAnglePerStep(angle);
+        spirographView.setSpirographModel(new SpirographModel(largeRad, smallRad, penDist, numSteps, angle));
     }
 }

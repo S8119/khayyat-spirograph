@@ -9,11 +9,8 @@ public class SpirographFrame extends JFrame
 {
     public SpirographFrame()
     {
-        final double initialLargeRad = 200;
-        final double initialSmallRad = 75;
-        final double initialPenDist = 55;
-        final int initialNumSteps = 8000;
-        final double initialAngle = .007;
+        SpirographModel spirographModel = new SpirographModel(
+                200, 75, 55, 8000, .007);
 
         setSize(800, 600);
         setTitle("Spirograph Frame");
@@ -22,20 +19,19 @@ public class SpirographFrame extends JFrame
         setLayout(new GridBagLayout());
 
         final JLabel largeRadLabel = new JLabel("Large Radius");
-        JTextField largeRadField = new JTextField(String.valueOf(initialLargeRad));
+        JTextField largeRadField = new JTextField(String.valueOf(spirographModel.getLargeRadius()));
         final JLabel smallRadLabel = new JLabel("Small Radius");
-        JTextField smallRadField = new JTextField(String.valueOf(initialSmallRad));
+        JTextField smallRadField = new JTextField(String.valueOf(spirographModel.getSmallRadius()));
         final JLabel penDistLabel = new JLabel("Pen Distance");
-        JTextField penDistField = new JTextField(String.valueOf(initialPenDist));
+        JTextField penDistField = new JTextField(String.valueOf(spirographModel.getPenDistance()));
         final JLabel numStepsLabel = new JLabel("Number of Steps");
-        JTextField numStepsField = new JTextField(String.valueOf(initialNumSteps));
+        JTextField numStepsField = new JTextField(String.valueOf(spirographModel.getNumSteps()));
         final JLabel angLabel = new JLabel("Angle Per Step");
-        JTextField angField = new JTextField(String.valueOf(initialAngle));
+        JTextField angField = new JTextField(String.valueOf(spirographModel.getAnglePerStep()));
 
         final JButton drawButton = new JButton("Draw");
 
-        final SpirographView spirographView = new SpirographView(
-                initialLargeRad, initialSmallRad, initialPenDist, initialNumSteps, initialAngle);
+        final SpirographView spirographView = new SpirographView(spirographModel);
 
         final SpirographController spirographController = new SpirographController(spirographView);
 

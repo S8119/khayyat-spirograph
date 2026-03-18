@@ -19,4 +19,29 @@ public class SpirographModel
         this.numSteps = numSteps;
         this.anglePerStep = anglePerStep;
     }
+
+    public double getLargeRadius()
+    {
+        return largeRadius;
+    }
+
+    public double getSmallRadius()
+    {
+        return smallRadius;
+    }
+
+    public double getPenDistance()
+    {
+        return penDistance;
+    }
+
+    public int getNumSteps()
+    {
+        return numSteps;
+    }
+
+    public double getAnglePerStep()
+    {
+        return anglePerStep;
+    }
 }
