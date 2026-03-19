@@ -9,7 +9,7 @@ public class SpirographFrame extends JFrame
 {
     public SpirographFrame()
     {
-        SpirographModel spirographModel = new SpirographModel(
+        final SpirographModel spirographModel = new SpirographModel(
                 200, 75, 55, 8000, .007);
 
         setSize(800, 600);

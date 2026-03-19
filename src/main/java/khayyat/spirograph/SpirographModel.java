@@ -50,9 +50,14 @@ public class SpirographModel
     @Override
     public boolean equals(Object o)
     {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass())
+        {
+            return false;
+        }
         SpirographModel that = (SpirographModel) o;
-        return Double.compare(largeRadius, that.largeRadius) == 0 && Double.compare(smallRadius, that.smallRadius) == 0 && Double.compare(penDistance, that.penDistance) == 0 && numSteps == that.numSteps && Double.compare(anglePerStep, that.anglePerStep) == 0;
+        return Double.compare(largeRadius, that.largeRadius) == 0 && Double.compare(smallRadius, that.smallRadius) == 0
+                && Double.compare(penDistance, that.penDistance) == 0 && numSteps == that.numSteps
+                && Double.compare(anglePerStep, that.anglePerStep) == 0;
     }
 
     @Override
