@@ -108,6 +108,7 @@ public class SpirographFrame extends JFrame
         constraints.gridx = 0;
         constraints.gridy = 5;
         constraints.gridwidth = 2;
+        constraints.anchor = GridBagConstraints.NORTH;
         add(drawButton, constraints);
 
         constraints = new GridBagConstraints();
