@@ -23,8 +23,6 @@ public class SpirographView extends JComponent
     {
         super.paintComponent(g);
 
-        g.translate(0, getHeight());
-
         double time = 0;
         double prevX;
         double prevY;
@@ -39,8 +37,8 @@ public class SpirographView extends JComponent
             time = i * spirographModel.getAnglePerStep();
             x = spirographModel.getX(time);
             y = spirographModel.getY(time);
-            g.drawLine((int) prevX + getWidth() / 2, (int) -prevY - getHeight() / 2,
-                    (int) x + getWidth() / 2, (int) -y - getHeight() / 2);
+            g.drawLine((int) prevX + getWidth() / 2, (int) prevY + getHeight() / 2,
+                    (int) x + getWidth() / 2, (int) y + getHeight() / 2);
         }
     }
 }
