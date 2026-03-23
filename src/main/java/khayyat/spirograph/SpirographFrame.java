@@ -19,15 +19,15 @@ public class SpirographFrame extends JFrame
         setLayout(new GridBagLayout());
 
         final JLabel largeRadLabel = new JLabel("Large Radius");
-        JTextField largeRadField = new JTextField(String.valueOf(spirographModel.getLargeRadius()));
+        final JTextField largeRadField = new JTextField(String.valueOf(spirographModel.getLargeRadius()));
         final JLabel smallRadLabel = new JLabel("Small Radius");
-        JTextField smallRadField = new JTextField(String.valueOf(spirographModel.getSmallRadius()));
+        final JTextField smallRadField = new JTextField(String.valueOf(spirographModel.getSmallRadius()));
         final JLabel penDistLabel = new JLabel("Pen Distance");
-        JTextField penDistField = new JTextField(String.valueOf(spirographModel.getPenDistance()));
+        final JTextField penDistField = new JTextField(String.valueOf(spirographModel.getPenDistance()));
         final JLabel numStepsLabel = new JLabel("Number of Steps");
-        JTextField numStepsField = new JTextField(String.valueOf(spirographModel.getNumSteps()));
+        final JTextField numStepsField = new JTextField(String.valueOf(spirographModel.getNumSteps()));
         final JLabel angLabel = new JLabel("Angle Per Step");
-        JTextField angField = new JTextField(String.valueOf(spirographModel.getAnglePerStep()));
+        final JTextField angField = new JTextField(String.valueOf(spirographModel.getAnglePerStep()));
 
         final JButton drawButton = new JButton("Draw");
 
