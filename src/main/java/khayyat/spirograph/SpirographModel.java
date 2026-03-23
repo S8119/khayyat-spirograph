@@ -47,6 +47,18 @@ public class SpirographModel
         return anglePerStep;
     }
 
+    public double getXPosition(double time)
+    {
+        return (largeRadius - smallRadius) * Math.cos(time) + penDistance
+                * Math.cos((largeRadius - smallRadius) * time / smallRadius);
+    }
+
+    public double getYPosition(double time)
+    {
+        return (largeRadius - smallRadius) * Math.sin(time) - penDistance
+                * Math.sin((largeRadius - smallRadius) * time / smallRadius);
+    }
+
     @Override
     public boolean equals(Object o)
     {
