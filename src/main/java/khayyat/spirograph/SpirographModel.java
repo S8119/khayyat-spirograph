@@ -1,0 +1,80 @@
+package khayyat.spirograph;
+
+import java.util.Objects;
+
+public class SpirographModel
+{
+    private final double largeRadius;
+    private final double smallRadius;
+    private final double penDistance;
+    private final int numSteps;
+    private final double anglePerStep;
+
+    public SpirographModel(
+            double largeRadius, double smallRadius, double penDistance,
+            int numSteps, double anglePerStep
+    )
+    {
+        this.largeRadius = largeRadius;
+        this.smallRadius = smallRadius;
+        this.penDistance = penDistance;
+        this.numSteps = numSteps;
+        this.anglePerStep = anglePerStep;
+    }
+
+    public double getLargeRadius()
+    {
+        return largeRadius;
+    }
+
+    public double getSmallRadius()
+    {
+        return smallRadius;
+    }
+
+    public double getPenDistance()
+    {
+        return penDistance;
+    }
+
+    public int getNumSteps()
+    {
+        return numSteps;
+    }
+
+    public double getAnglePerStep()
+    {
+        return anglePerStep;
+    }
+
+    public double getX(double time)
+    {
+        return (largeRadius - smallRadius) * Math.cos(time) + penDistance
+                * Math.cos((largeRadius - smallRadius) * time / smallRadius);
+    }
+
+    public double getY(double time)
+    {
+        return (largeRadius - smallRadius) * Math.sin(time) - penDistance
+                * Math.sin((largeRadius - smallRadius) * time / smallRadius);
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o == null || getClass() != o.getClass())
+        {
+            return false;
+        }
+        SpirographModel that = (SpirographModel) o;
+        return Double.compare(largeRadius, that.largeRadius) == 0 && Double.compare(smallRadius, that.smallRadius) == 0
+                && Double.compare(penDistance, that.penDistance) == 0 && numSteps == that.numSteps
+                && Double.compare(anglePerStep, that.anglePerStep) == 0;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(largeRadius, smallRadius, penDistance, numSteps, anglePerStep);
+    }
+}
