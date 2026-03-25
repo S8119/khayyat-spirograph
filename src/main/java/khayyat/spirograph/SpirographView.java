@@ -32,7 +32,7 @@ public class SpirographView extends JComponent
         double y = spirographModel.getY(0);
         //initial values when time = 0. Should equal x and y values in first iteration of for loop.
 
-        for (int i = 0; i < spirographModel.getNumSteps(); i++)
+        for (int i = 1; i < spirographModel.getNumSteps(); i++)
         {
             prevX = x;
             prevY = y;
