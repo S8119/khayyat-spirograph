@@ -9,7 +9,7 @@ public class SpirographFrame extends JFrame
 {
     public SpirographFrame()
     {
-        final SpirographModel spirographModel = new SpirographModel(
+        final SpirographModel model = new SpirographModel(
                 200, 75, 55, 8000, .007);
 
         setSize(800, 600);
@@ -19,28 +19,28 @@ public class SpirographFrame extends JFrame
         setLayout(new GridBagLayout());
 
         final JLabel largeRadLabel = new JLabel("Large Radius");
-        final JTextField largeRadField = new JTextField(String.valueOf(spirographModel.getLargeRadius()));
+        final JTextField largeRadField = new JTextField(String.valueOf(model.getLargeRadius()));
         final JLabel smallRadLabel = new JLabel("Small Radius");
-        final JTextField smallRadField = new JTextField(String.valueOf(spirographModel.getSmallRadius()));
+        final JTextField smallRadField = new JTextField(String.valueOf(model.getSmallRadius()));
         final JLabel penDistLabel = new JLabel("Pen Distance");
-        final JTextField penDistField = new JTextField(String.valueOf(spirographModel.getPenDistance()));
+        final JTextField penDistField = new JTextField(String.valueOf(model.getPenDistance()));
         final JLabel numStepsLabel = new JLabel("Number of Steps");
-        final JTextField numStepsField = new JTextField(String.valueOf(spirographModel.getNumSteps()));
+        final JTextField numStepsField = new JTextField(String.valueOf(model.getNumSteps()));
         final JLabel angLabel = new JLabel("Angle Per Step");
-        final JTextField angField = new JTextField(String.valueOf(spirographModel.getAnglePerStep()));
+        final JTextField angField = new JTextField(String.valueOf(model.getAnglePerStep()));
 
         final JButton drawButton = new JButton("Draw");
 
-        final SpirographView spirographView = new SpirographView(spirographModel);
+        final SpirographView view = new SpirographView(model);
 
-        final SpirographController spirographController = new SpirographController(spirographView);
+        final SpirographController controller = new SpirographController(view);
 
         drawButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                spirographController.updateView(
+                controller.updateView(
                         Double.parseDouble(largeRadField.getText()), Double.parseDouble(smallRadField.getText()),
                         Double.parseDouble(penDistField.getText()), Integer.parseInt(numStepsField.getText()),
                         Double.parseDouble(angField.getText())
@@ -118,7 +118,7 @@ public class SpirographFrame extends JFrame
         constraints.fill = GridBagConstraints.BOTH;
         constraints.weightx = 1;
         constraints.weighty = 1;
-        add(spirographView, constraints);
+        add(view, constraints);
     }
 
     public static void main(String[] args)

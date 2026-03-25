@@ -1,18 +1,16 @@
 package khayyat.spirograph;
 
-import javax.swing.*;
-
 public class SpirographController
 {
-    private SpirographView spirographView;
+    private final SpirographView view;
 
-    public SpirographController(SpirographView spirographView)
+    public SpirographController(SpirographView view)
     {
-        this.spirographView = spirographView;
+        this.view = view;
     }
 
     public void updateView(double largeRad, double smallRad, double penDist, int numSteps, double angle)
     {
-        spirographView.setSpirographModel(new SpirographModel(largeRad, smallRad, penDist, numSteps, angle));
+        view.setModel(new SpirographModel(largeRad, smallRad, penDist, numSteps, angle));
     }
 }

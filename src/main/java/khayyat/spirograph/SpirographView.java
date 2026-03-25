@@ -5,16 +5,16 @@ import java.awt.*;
 
 public class SpirographView extends JComponent
 {
-    private SpirographModel spirographModel;
+    private SpirographModel model;
 
-    public SpirographView(SpirographModel spirographModel)
+    public SpirographView(SpirographModel model)
     {
-        this.spirographModel = spirographModel;
+        this.model = model;
     }
 
-    public void setSpirographModel(SpirographModel spirographModel)
+    public void setModel(SpirographModel model)
     {
-        this.spirographModel = spirographModel;
+        this.model = model;
         repaint();
     }
 
@@ -28,17 +28,17 @@ public class SpirographView extends JComponent
         double time = 0;
         double prevX;
         double prevY;
-        double x = spirographModel.getX(0);
-        double y = spirographModel.getY(0);
+        double x = model.getX(0);
+        double y = model.getY(0);
         //initial values when time = 0. Should equal x and y values in first iteration of for loop.
 
-        for (int i = 1; i < spirographModel.getNumSteps(); i++)
+        for (int i = 1; i < model.getNumSteps(); i++)
         {
             prevX = x;
             prevY = y;
-            time = i * spirographModel.getAnglePerStep();
-            x = spirographModel.getX(time);
-            y = spirographModel.getY(time);
+            time = i * model.getAnglePerStep();
+            x = model.getX(time);
+            y = model.getY(time);
             g.drawLine((int) prevX, (int) prevY,
                     (int) x, (int) y);
         }
